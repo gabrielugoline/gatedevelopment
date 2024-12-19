@@ -429,16 +429,26 @@ header {
     text-align: center;
     margin: 0;
     padding: 170px 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     position: relative; /* Para que possamos usar o pseudo-elemento */
     background: url('https://img.freepik.com/free-photo/flat-lay-desktop-with-laptop-cup-coffee_23-2148430890.jpg?t=st=1734571790~exp=1734575390~hmac=30310df205e72d4dbdb9c73d6480032e417942e08e3872a123cd474ef4bc05fb&w=740') no-repeat center center;
     background-size: cover;
+}
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Cor preta com opacidade de 30% */
+    z-index: 1; /* Garante que a camada fique acima da imagem, mas abaixo do conteúdo */
 }
 /* Texto inicial "Gate Development > Desenvolvimento de Sites" */
 .intro-text {
     text-align: center;
     font-size: 19px;
-    color: #000000;
+    color: #ff0000;
     font-weight: bold;
     margin-bottom: 10px;
     z-index: 2;
@@ -448,7 +458,7 @@ header {
 .intro-title {
     text-align: center;
     font-size: 36px;
-    color: #ff0000;
+    color: #000000;
     font-weight: 700;
     margin-bottom: 20px;
     z-index: 2;
@@ -458,7 +468,7 @@ header {
 .intro-description {
     text-align: center;
     font-size: 19px;
-    color: #000000;
+    color: #ff0000;
     max-width: 800px;
     margin: 0 auto;
     z-index: 2;

@@ -438,7 +438,7 @@ header {
 .intro-text {
     text-align: center;
     font-size: 18px;
-    color: #ffffff46;
+    color: #ffffff;
     font-weight: bold;
     margin-bottom: 10px;
     z-index: 2;
@@ -523,8 +523,8 @@ header {
 
 /* Box de cada plano */
 .plan-box {
-    background-color: rgb(0, 0, 0);
-    border: 2px solid #000000;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #1a1a1a;
     padding: 40px 30px;
     width: 300px;
     text-align: center;
@@ -570,7 +570,7 @@ header {
 
 /* Título do plano */
 .plan-box h3 {
-    color: #000000;
+    color: #ffffff;
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -588,7 +588,7 @@ header {
 .plan-box h4 {
     font-size: 22px;
     font-weight: 500;
-    color: #000000be;
+    color: #ffffff;
     margin-bottom: 30px;
     letter-spacing: 0.5px;
     font-family: 'Roboto', sans-serif;
@@ -601,7 +601,7 @@ header {
     margin-bottom: 30px;
     text-align: left;
     font-size: 16px;
-    color: #000000;
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -620,7 +620,7 @@ header {
 
 /* Preço do plano */
 .price {
-    color: #ffffff;
+    color: #ff0000;
     font-weight: 700;
     font-size: 24px;
 }
