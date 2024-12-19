@@ -1,0 +1,1101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --main-color: rgb(255, 0, 0);
+    --main-hover-color: rgb(241, 89, 78);
+    --second-color: #1a1a1a;
+    --third-color: #2c2c2c;
+    --nav-text-color: #98999b;
+    --nav-text-hover-color: #8b1010;
+    --heading-color: #ffffff;
+    --small-text-color: #c7c7c7;
+    --very-small-text-color: #ffffff;
+}
+header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px; 
+  }
+/* random */
+h1 {
+    color: var(--heading-color);
+}
+
+h2 {
+    margin-left: 1.5%;
+    color: var(--heading-color);
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.825rem;
+    margin: 1.3rem 0;
+    margin-top: 8px;
+    color: var(--small-text-color);
+}
+
+p {
+    color: var(--very-small-text-color);
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    margin: 1rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    letter-spacing: 1px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    transition: 0.35s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-hover-color);
+
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.wrapper {
+    margin: 100px auto;
+    max-width: 1100px;
+
+}
+
+.title {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    height: 65px;
+    margin-bottom: 20px;
+
+}
+
+.th1 {
+    display: flex;
+    justify-content: center;
+}
+
+.thr {
+    width: 180px;
+    justify-content: center;
+}
+
+.thr hr {
+    background-color: var(--main-color);
+    height: 5px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+svg {
+    display: block;
+}
+
+.curve {
+    background-color: var(--bg-color);
+    margin: 0;
+    display: block;
+    fill: var(--second-color);
+}
+
+
+
+.curved {
+    background-color: var(--second-color);
+    margin: 0;
+    display: block;
+    fill: var(--bg-color);
+}
+
+/* random end */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+
+}
+
+
+
+/* Estilo básico do menu */
+ul.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Estilo do item de menu principal */
+li {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do link do item de menu */
+li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: white;
+    display: block;
+}
+
+/* Estilo do dropdown (oculto por padrão) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-color);
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-content li {
+    padding: 8px 16px;
+}
+
+.dropdown-content li a {
+    color: black;
+}
+
+/* Exibe o dropdown quando o item de menu é hover (versão desktop) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza todos os itens do menu */
+    }
+
+    /* Estilo do link "Serviços" */
+    .dropdown a {
+        padding: 15px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        width: 100%; /* Faz o link ocupar toda a largura disponível */
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* Submenu */
+    .dropdown-content {
+        position: static; /* Faz com que o dropdown se alinhe abaixo no mobile */
+        display: none;
+        background-color: var(--bg-color);
+        width: 100%; /* Garante que o submenu ocupe toda a largura */
+        text-align: center; /* Centraliza o texto dentro do submenu */
+        padding: 0;
+    }
+
+    /* Exibe o dropdown ao clicar (no mobile) */
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* Links dentro do dropdown */
+    .dropdown-content li {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center; /* Garante que o texto dentro dos links no submenu também fique centralizado */
+    }
+
+    /* Garante que o link "Serviços" fique centralizado no mobile */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centraliza o link "Serviços" */
+    }
+}
+/* Estilo da setinha */
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo da seta para virar para cima ao passar o mouse */
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza todos os itens do menu */
+    }
+
+    /* Estilo do link "Serviços" */
+    .dropdown a {
+        padding: 15px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        width: 100%; /* Faz o link ocupar toda a largura disponível */
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* Submenu */
+    .dropdown-content {
+        position: static; /* Faz com que o dropdown se alinhe abaixo no mobile */
+        display: none;
+        background-color: var(--bg-color);
+        width: 100%; /* Garante que o submenu ocupe toda a largura */
+        text-align: center; /* Centraliza o texto dentro do submenu */
+        padding: 0;
+    }
+
+    /* Exibe o dropdown ao clicar (no mobile) */
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* Links dentro do dropdown */
+    .dropdown-content li {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center; /* Garante que o texto dentro dos links no submenu também fique centralizado */
+    }
+
+    /* Garante que o link "Serviços" fique centralizado no mobile */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centraliza o link "Serviços" */
+    }
+}
+
+
+
+
+
+/* navbar */
+header {
+    height: 80px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 70px;
+    background-color: transparent;
+}
+
+.logo {
+    cursor: pointer;
+    color: var(--heading-color);
+}
+
+.nav-area {
+    list-style: none;
+}
+
+.nav-area li {
+    display: inline-block;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.nav-area li a {
+    transition: .3s;
+    color: var(--nav-text-color);
+    font-size: 17px;
+}
+
+.nav-area li a:hover {
+    color: var(--nav-text-hover-color);
+}
+
+.btn-area {
+    cursor: pointer;
+    color: var(--heading-color);
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    transition: .35s;
+}
+
+.btn-area:hover {
+    background-color: var(--main-hover-color);
+}
+
+::selection {
+    color: #fff;
+    background: #007bff;
+}
+
+/* navbar end */
+
+/* home */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carrinho de Compras em formato vertical */
+#carrinho {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #fff;
+    border: 2px solid #e74c3c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: none; /* Inicialmente escondido */
+}
+
+
+
+
+
+
+
+
+
+/* Estilo geral da introdução */
+/* Estilos para a introdução */
+.intro {
+    text-align: center;
+    margin: 0;
+    padding: 170px 20px;
+    color: white;
+    position: relative; /* Para que possamos usar o pseudo-elemento */
+    background: url('https://img.freepik.com/free-vector/background-line-abstract-gradient-colorful-style_483537-2553.jpg?t=st=1734500957~exp=1734504557~hmac=084aa6af3683301316a056912ada2a5c612fb3acf5fa8e7d21b44419ed106cea&w=740') no-repeat center center;
+    background-size: cover;
+}
+/* Texto inicial "Gate Development > Desenvolvimento de Sites" */
+.intro-text {
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff46;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+/* Título principal "Crie um site totalmente exclusivo para seu negócio!" */
+.intro-title {
+    text-align: center;
+    font-size: 36px;
+    color: #ff0000;
+    font-weight: 700;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+/* Descrição "Na Gate Development..." */
+.intro-description {
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+}
+/* Sobreposição de cor */
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a; /* Cor da sobreposição */
+    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+    z-index: 1; /* Coloca a sobreposição abaixo do conteúdo */
+}
+
+/* Estilo do título e parágrafo */
+.intro h2, .intro p {
+    z-index: 2; /* Garante que o título e o parágrafo fiquem acima da sobreposição */
+}
+
+/* Estilo do botão */
+.btn-transparent {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    position: relative; /* Adiciona posição relativa ao botão */
+    z-index: 3; /* Coloca o botão acima da sobreposição */
+}
+
+.btn-transparent:hover {
+    border-color: #ff0000;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Planos */
+.plans-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 10px;
+}
+
+/* Box de cada plano */
+.plan-box {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid #000000;
+    padding: 40px 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+/* Animação de fade-in e movimento para cima quando a página rola até os planos */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Efeito ao passar o mouse */
+.plan-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05); /* Clareia a box */
+    border: 2px solid #ff0000; /* Borda se torna mais forte */
+}
+
+/* Efeito no fundo da box ao hover */
+.plan-box:hover::after {
+    width: 350%;
+    height: 350%;
+}
+
+/* Título do plano */
+.plan-box h3 {
+    color: #000000;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+/* Subtítulo do plano */
+.plan-box h4 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #000000be;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Lista de características */
+.plan-box ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+
+/* Ícones personalizados */
+.plan-box i {
+    color: #ff0000;
+    margin-right: 12px;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover nos ícones */
+.plan-box ul li:hover i {
+    transform: translateX(5px);
+}
+
+/* Preço do plano */
+.price {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* Botão "Adicionar ao Carrinho" */
+.add-to-cart {
+    background-color: transparent; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto */
+    border: #000000;
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Aponta o cursor para indicar que o botão é clicável */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+    z-index: 10; /* Garante que o botão fique acima de outros elementos */
+}
+
+/* Hover e animação do botão */
+.add-to-cart:hover {
+    transform: translateY(-3px);
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: #ff0000;
+    border-radius: 40px;
+}
+
+
+
+
+/* Animação de entrada para os planos ao rolar a página */
+@keyframes fadeInScroll {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classe para ativar animação ao rolar até o plano */
+.plan-box.visible {
+    opacity: 1;
+    animation: fadeInScroll 0.8s forwards;
+}
+
+/* Implementação para ativação da classe via JS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.add-to-cart {
+    position: relative;
+    z-index: 10; /* Garante que o botão fique acima de outros elementos */
+}
+
+#cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Menu do carrinho */
+#cart-menu {
+    position: fixed;
+    bottom: 70px; /* Abaixo do ícone do carrinho */
+    right: 20px;
+    width: 250px;
+    background-color: #1a1a1a;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: none; /* Inicialmente oculto */
+    z-index: 9;
+}
+
+/* Título e itens do carrinho */
+#cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#total {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#finalize-btn {
+    background-color: #ff0000;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#finalize-btn:hover {
+    background-color: #ec3535;
+}
+
+
+#clear-btn {
+    background-color: #ff0000;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#clear-btn:hover {
+    background-color: #ec3535;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .plans-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan-box {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+    #cart-icon {
+        bottom: 20px; /* Distância do fundo */
+        right: 20px; /* Distância da direita */
+    }
+
+    /* Ajustes do menu do carrinho */
+    #cart-menu {
+        width: 90%; /* Largura de 90% na versão mobile */
+        max-width: 350px; /* Reduz a largura máxima */
+        padding: 10px;
+    }
+
+    /* Ajuste da lista de itens */
+    #cart-items .cart-item {
+        font-size: 14px; /* Font menor para mobile */
+    }
+
+    /* Ajuste do total */
+    #total {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Ajuste do botão de finalizar */
+    #finalize-btn {
+        font-size: 14px;
+    }
+     /* Ajuste do botão de finalizar */
+     #clear-btn {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+footer {
+    display: flex;
+    width: auto;
+    height: 250px;
+    background-color: var(--second-color);
+    align-items: center;
+}
+
+
+
+.foot {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 250px;
+    color: white;
+}
+
+/* footer end */
+/* @ */
+@keyframes animate {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.footer {
+    background-color: #222; 
+    padding: 20px; 
+    color: #fff;
+    text-align: center; 
+}
+
+.quick-contact {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 10px; 
+}
+
+.quick-contact a {
+    color: #fff; 
+    margin: 0 15px; 
+    text-decoration: none; 
+    font-size: 24px; 
+}
+
+.quick-contact a:hover {
+    color: #e91616; 
+}
+
+/* Versão Mobile */
+@media (max-width: 600px) {
+    .quick-contact {
+        flex-direction: row; 
+        justify-content: center;
+    }
+
+    .quick-contact a {
+        margin: 0 10px; 
+        font-size: 30px; 
+    }
+
+    .foot {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    nav {
+        margin-bottom: 15px; 
+    }
+
+    .nav-area.bottom-nav {
+        flex-direction: column;
+        padding: 0; 
+    }
+
+    .nav-area.bottom-nav li {
+        margin: 5px 0; 
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    .wrapper nav .categorys {
+        max-width: 600px;
+    }
+
+    .wrapper {
+        max-width: 695px;
+        margin: 30px auto;
+    }
+
+    nav .categorys span {
+        padding: 7px 15px;
+    }
+}
+
+@media all and (max-width:900px) {
+    .features-grid {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 710px) {
+    .wrapper nav .categorys {
+        max-width: 600px;
+    }
+
+    .wrapper {
+        max-width: 450px;
+        margin: 30px auto;
+    }
+
+    nav .categorys span {
+        padding: 7px 15px;
+    }
+
+    header {
+        padding: 10px 25px;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .home {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .home-text {
+        text-align: center;
+    }
+
+    .bot-description {
+        margin-right: 0;
+        text-align: justify;
+        font-size: 14px;
+    }
+
+    .nav-area li a {
+        font-size: 12.25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        margin: 30px auto;
+    }
+
+    .wrapper nav .categorys {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav .categorys span {
+        margin: 5px;
+    }
+}
+
+/* @ end */

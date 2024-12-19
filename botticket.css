@@ -1,0 +1,1447 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --main-color: rgb(255, 0, 0);
+    --main-hover-color: rgb(241, 89, 78);
+    --second-color: #1a1a1a;
+    --third-color: #2c2c2c;
+    --nav-text-color: #98999b;
+    --nav-text-hover-color: #8b1010;
+    --heading-color: #ffffff;
+    --small-text-color: #c7c7c7;
+    --very-small-text-color: #ffffff;
+}
+header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px; 
+  }
+/* random */
+h1 {
+    color: var(--heading-color);
+}
+
+h2 {
+    margin-left: 1.5%;
+    color: var(--heading-color);
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.825rem;
+    margin: 1.3rem 0;
+    margin-top: 8px;
+    color: var(--small-text-color);
+}
+
+p {
+    color: var(--very-small-text-color);
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    margin: 1rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    letter-spacing: 1px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    transition: 0.35s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-hover-color);
+
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.wrapper {
+    margin: 100px auto;
+    max-width: 1100px;
+
+}
+
+.title {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    height: 65px;
+    margin-bottom: 20px;
+
+}
+
+.th1 {
+    display: flex;
+    justify-content: center;
+}
+
+.thr {
+    width: 180px;
+    justify-content: center;
+}
+
+.thr hr {
+    background-color: var(--main-color);
+    height: 5px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+svg {
+    display: block;
+}
+
+.curve {
+    background-color: var(--bg-color);
+    margin: 0;
+    display: block;
+    fill: var(--second-color);
+}
+
+
+
+.curved {
+    background-color: var(--second-color);
+    margin: 0;
+    display: block;
+    fill: var(--bg-color);
+}
+
+/* random end */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+
+}
+
+
+
+/* Estilo básico do menu */
+ul.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* Estilo do item de menu principal */
+li {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do link do item de menu */
+li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: white;
+    display: block;
+}
+
+/* Estilo do dropdown (oculto por padrão) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-color);
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-content li {
+    padding: 8px 16px;
+}
+
+.dropdown-content li a {
+    color: black;
+}
+
+/* Exibe o dropdown quando o item de menu é hover (versão desktop) */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza todos os itens do menu */
+    }
+
+    /* Estilo do link "Serviços" */
+    .dropdown a {
+        padding: 15px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        width: 100%; /* Faz o link ocupar toda a largura disponível */
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* Submenu */
+    .dropdown-content {
+        position: static; /* Faz com que o dropdown se alinhe abaixo no mobile */
+        display: none;
+        background-color: var(--bg-color);
+        width: 100%; /* Garante que o submenu ocupe toda a largura */
+        text-align: center; /* Centraliza o texto dentro do submenu */
+        padding: 0;
+    }
+
+    /* Exibe o dropdown ao clicar (no mobile) */
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* Links dentro do dropdown */
+    .dropdown-content li {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center; /* Garante que o texto dentro dos links no submenu também fique centralizado */
+    }
+
+    /* Garante que o link "Serviços" fique centralizado no mobile */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centraliza o link "Serviços" */
+    }
+}
+/* Estilo da setinha */
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo da seta para virar para cima ao passar o mouse */
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza todos os itens do menu */
+    }
+
+    /* Estilo do link "Serviços" */
+    .dropdown a {
+        padding: 15px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        width: 100%; /* Faz o link ocupar toda a largura disponível */
+        display: block;
+        box-sizing: border-box;
+    }
+
+    /* Submenu */
+    .dropdown-content {
+        position: static; /* Faz com que o dropdown se alinhe abaixo no mobile */
+        display: none;
+        background-color: var(--bg-color);
+        width: 100%; /* Garante que o submenu ocupe toda a largura */
+        text-align: center; /* Centraliza o texto dentro do submenu */
+        padding: 0;
+    }
+
+    /* Exibe o dropdown ao clicar (no mobile) */
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* Links dentro do dropdown */
+    .dropdown-content li {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center; /* Garante que o texto dentro dos links no submenu também fique centralizado */
+    }
+
+    /* Garante que o link "Serviços" fique centralizado no mobile */
+    .dropdown {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centraliza o link "Serviços" */
+    }
+}
+
+
+
+
+
+/* navbar */
+header {
+    height: 80px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 70px;
+    background-color: transparent;
+}
+
+.logo {
+    cursor: pointer;
+    color: var(--heading-color);
+}
+
+.nav-area {
+    list-style: none;
+}
+
+.nav-area li {
+    display: inline-block;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.nav-area li a {
+    transition: .3s;
+    color: var(--nav-text-color);
+    font-size: 17px;
+}
+
+.nav-area li a:hover {
+    color: var(--nav-text-hover-color);
+}
+
+.btn-area {
+    cursor: pointer;
+    color: var(--heading-color);
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    transition: .35s;
+}
+
+.btn-area:hover {
+    background-color: var(--main-hover-color);
+}
+
+::selection {
+    color: #fff;
+    background: #007bff;
+}
+
+/* navbar end */
+
+/* home */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carrinho de Compras em formato vertical */
+#carrinho {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #fff;
+    border: 2px solid #e74c3c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: none; /* Inicialmente escondido */
+}
+
+
+
+
+
+
+
+
+
+/* Estilo geral da introdução */
+/* Estilos para a introdução */
+.intro {
+    text-align: center;
+    margin: 0;
+    padding: 170px 20px;
+    color: rgb(0, 0, 0);
+    position: relative; /* Para que possamos usar o pseudo-elemento */
+    background: url('https://img.freepik.com/free-photo/flat-lay-desktop-with-laptop-cup-coffee_23-2148430890.jpg?t=st=1734571790~exp=1734575390~hmac=30310df205e72d4dbdb9c73d6480032e417942e08e3872a123cd474ef4bc05fb&w=740') no-repeat center center;
+    background-size: cover;
+}
+/* Texto inicial "Gate Development > Desenvolvimento de Sites" */
+.intro-text {
+    text-align: center;
+    font-size: 19px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+/* Título principal "Crie um site totalmente exclusivo para seu negócio!" */
+.intro-title {
+    text-align: center;
+    font-size: 36px;
+    color: #ff0000;
+    font-weight: 700;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+/* Descrição "Na Gate Development..." */
+.intro-description {
+    text-align: center;
+    font-size: 19px;
+    color: #000000;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+}
+/* Sobreposição de cor */
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a; /* Cor da sobreposição */
+    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+    z-index: 1; /* Coloca a sobreposição abaixo do conteúdo */
+}
+
+/* Estilo do título e parágrafo */
+.intro h2, .intro p {
+    z-index: 2; /* Garante que o título e o parágrafo fiquem acima da sobreposição */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container */
+.container {
+    width: 100%;
+    min-height: 100vh; /* Garante que o container ocupe pelo menos a altura inteira da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 20px;
+    padding-bottom: 200px; /* Aumenta significativamente o espaço inferior */
+    background-color: #121212; /* Fundo suave */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Formulário */
+.container form {
+    width: 100%;
+    max-width: 800px; /* Ajustado para não ocupar toda a tela */
+    background: #313131;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 40px; /* Aumenta o espaçamento para dar mais destaque ao título */
+    margin-top: 50px; /* Ajusta a margem superior para que o título fique mais afastado do topo */
+    width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #ff0000; /* Cor do título para destacá-lo */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 18px;
+    color: #fff;
+}
+
+
+
+
+
+.table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .rever-pedido-title {
+    font-size: 22px; /* Tamanho do texto */
+    color: #a5a5a5; /* Cor do título */
+    text-align: left; /* Alinha o título ao centro */
+    margin-top: 120px; /* Espaço acima do título */
+    margin-left: 20px;
+  }
+  .table-header {
+    display: flex;
+    background-color: #1a1a1a;
+    padding: 15px;
+    color: #a5a5a5;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .header-item {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .table-row {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    color: #a5a5a5;
+  }
+  
+  .row-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .product-name {
+    text-align: left;
+  }
+  
+  .dropdown {
+    position: relative;
+    text-align: center;
+  }
+  
+  .dropdown-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #a5a5a5;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    text-align: left;
+  }
+  
+  .dropdown-btn:hover {
+    background-color: #ff0000;
+  }
+  
+  .dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #b42c2c96;
+    border: 1px solid #b42c2c96;
+    border-radius: 5px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-options li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-options li:hover {
+    background-color: #b42c2c96;
+  }
+  
+  .delete-icon {
+    cursor: pointer;
+    font-size: 28px;
+    color: red;
+  }
+  
+  .delete-icon i {
+    transition: color 0.3s ease;
+  }
+  
+  .delete-icon:hover i {
+    color: #ff0000;
+  }
+  
+
+
+/* Formulário */
+form {
+    margin-top: 70px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    width: 100%; /* Faz o formulário ocupar 100% da largura da tela */
+    max-width: 600px; /* Limita a largura do formulário */
+    margin-left: 0; /* Remove qualquer margem automática que centraliza o formulário */
+    margin-right: 0; /* Remover margem direita */
+}
+
+/* Seções Personalizadas */
+form fieldset {
+    margin-top: 50px;
+    border: none;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+legend {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f44336;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    color: #a5a5a5;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Seções Personalizadas */
+.personal-info,
+.address-info,
+.payment-info,
+.contact-info {
+    background: #1a1a1a;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.personal-info legend,
+.address-info legend,
+.payment-info legend,
+.contact-info legend {
+    font-size: 18px;
+    color: #a5a5a5;
+    margin-bottom: 12px;
+}
+
+select {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Botões */
+button {
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-align: left;  /* Alinhando o texto à esquerda no botão */
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+textarea {
+    padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+.payment-title {
+    font-size: 22px;
+    color: #a5a5a5;
+    margin-bottom: 20px; /* Espaço entre o título e a primeira opção */
+    margin-top: 70px; /* Espaço acima do título */
+    margin-left: 20px; /* Adiciona um espaço à esquerda, empurrando o título para a direita */
+  }
+  
+  .payment-option {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    margin: 10px 0;
+  }
+  
+  .payment-option input[type="radio"] {
+    display: none; /* Esconde o botão de rádio padrão */
+  }
+  
+  .payment-option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .radio-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ddd; /* Cor da bolinha quando não está selecionada */
+    margin-right: 10px;
+    position: relative;
+  }
+  
+  .payment-option input[type="radio"]:checked + label .radio-icon {
+    background-color: #ff0000; /* Bolinha vermelha quando selecionada */
+    box-shadow: 0 0 0 4px rgba(244, 67, 54, 0.3); /* Efeito de brilho ao redor da bolinha */
+  }
+  
+  .payment-option input[type="radio"]:not(:checked) + label .radio-icon:hover {
+    background-color: #ff0000; /* Altera a cor da bolinha ao passar o mouse */
+  }
+  
+  .payment-option label {
+    font-size: 18px; /* Tamanho do texto */
+    color: #000000; /* Cor do texto */
+  }
+  
+  /* Estilos para as opções indisponíveis (Boleto e Cartão) */
+  .disabled-icon {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  .payment-option input[type="radio"]:disabled + label .disabled-icon {
+    color: #ff0000; /* Cor do 'X' quando o pagamento está indisponível */
+    
+  }
+  
+  .payment-option input[type="radio"]:disabled + label {
+    color: #000000; /* Cor do texto das opções indisponíveis */
+    cursor: not-allowed; /* Indica que a opção não pode ser selecionada */
+  }
+  
+
+
+/* Formas de pagamento */
+.cart-summary, .payment-section, .qr-code-section {
+    margin-top: 40px;
+    background: #1a1a1a;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.payment-option {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    background: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.payment-option:hover {
+    background-color: #a5a5a5;
+    color: #000000;
+    transform: translateY(-5px);
+}
+
+.payment-option i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #a5a5a5;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Aba de Pagamento */
+#payment-info {
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    color:#fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    animation: fadeIn 0.3s ease-in-out; /* Animação de aparecimento */
+    
+}
+
+/* Estilo da Chave PIX */
+#email-container {
+    background-color: #1e1e1e; /* Fundo intermediário */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid #a5a5a5; /* Realce com borda */
+}
+
+#email-container p {
+    margin: 10px 0;
+    font-size: 22px;
+    color:  #a5a5a5;
+}
+
+#payment-email {
+    font-size: 25px; /* Maior destaque */
+    font-weight: bold;
+    color: #ff4747; /* Vermelho mais vibrante */
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Botão de Copiar E-mail */
+#copy-email {
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#copy-email:hover {
+    background-color: #cf5d5d;
+    transform: scale(1.00); /* Leve aumento no hover */
+}
+
+/* Texto Adicional */
+#payment-info p:last-of-type {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff0000; /* Cinza claro */
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Resumo do Pedido */
+.summary-container {
+    float: right;
+    width: 40%;
+    margin-top: 20px;
+}
+
+.summary-content {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.summary-item,
+.summary-value {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-value {
+    text-align: right;
+}
+
+.summary-item strong,
+.summary-value strong {
+    font-weight: bold;
+}
+
+/* Botão de checar pagamento */
+.check-payment-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.check-payment-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.check-payment-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Mensagem após pagamento checado */
+.payment-checked-message {
+    display: none;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    margin-top: 20px;
+}
+
+
+
+
+
+
+.edit-resumo {
+    width: 90%; /* Para telas menores, a largura será maior */
+    margin-top: -1855px; /* Afastando o container para baixo */
+    margin-left: auto; /* Centraliza à esquerda */
+    margin-right: auto; /* Centraliza à direita */
+}
+
+
+/* Adicional para a versão desktop */
+.edit-resumo {
+position: relative; /* Para garantir que o margin-top funcione */
+top: 600px; /* Desce o container 600px a partir do seu lugar original */
+margin-left: auto; /* Para afastar da direita */
+margin-right: 0; /* Para afastar da esquerda */
+width: 30%; /* Largura menor para desktop */
+padding: 20px; /* Adiciona um padding interno */
+border-radius: 8px; /* Bordas arredondadas */
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+float: right; /* Alinha o container à direita */
+}
+
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .edit-resumo {
+        width: 90%; /* Para telas menores, a largura será maior */
+        margin-left: 0; /* Remove qualquer margem esquerda definida */
+        margin-right: auto; /* Garante que o container se mova para a esquerda */
+        transform: translateX(-6%); /* Move o container para a esquerda em 50% */
+        text-align: center; /* Alinha o conteúdo dentro do container */
+        position: relative; /* Posicionamento relativo */
+        top: 2200px; /* Move o container para baixo de forma independente */
+    }
+    #payment-info {
+        padding-bottom: 500px
+    }
+}
+
+/* footer */
+footer {
+    display: flex;
+    width: auto;
+    height: 250px;
+    background-color: var(--second-color);
+    align-items: center;
+}
+
+
+
+.foot {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 250px;
+    color: white;
+}
+
+/* footer end */
+/* @ */
+@keyframes animate {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.footer {
+    background-color: #222; 
+    padding: 20px; 
+    color: #fff;
+    text-align: center; 
+}
+
+.quick-contact {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 10px; 
+}
+
+.quick-contact a {
+    color: #fff; 
+    margin: 0 15px; 
+    text-decoration: none; 
+    font-size: 24px; 
+}
+
+.quick-contact a:hover {
+    color: #e91616; 
+}
+
+
+
+/* Versão Mobile */
+@media (max-width: 600px) {
+    .quick-contact {
+        flex-direction: row; 
+        justify-content: center;
+    }
+
+    .quick-contact a {
+        margin: 0 10px; 
+        font-size: 30px; 
+    }
+
+    .foot {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    nav {
+        margin-bottom: 15px; 
+    }
+
+    .nav-area.bottom-nav {
+        flex-direction: column;
+        padding: 0; 
+    }
+
+    .nav-area.bottom-nav li {
+        margin: 5px 0; 
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    .wrapper nav .categorys {
+        max-width: 600px;
+    }
+
+    .wrapper {
+        max-width: 695px;
+        margin: 30px auto;
+    }
+
+    nav .categorys span {
+        padding: 7px 15px;
+    }
+}
+
+@media all and (max-width:900px) {
+    .features-grid {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 710px) {
+    .wrapper nav .categorys {
+        max-width: 600px;
+    }
+
+    .wrapper {
+        max-width: 450px;
+        margin: 30px auto;
+    }
+
+    nav .categorys span {
+        padding: 7px 15px;
+    }
+
+    header {
+        padding: 10px 25px;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .home {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .home-text {
+        text-align: center;
+    }
+
+    .bot-description {
+        margin-right: 0;
+        text-align: justify;
+        font-size: 14px;
+    }
+
+    .nav-area li a {
+        font-size: 12.25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        margin: 30px auto;
+    }
+
+    .wrapper nav .categorys {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav .categorys span {
+        margin: 5px;
+    }
+}
+
+/* @ end */

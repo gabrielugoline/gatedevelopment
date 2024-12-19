@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Development | Pagamento</title>
+    <link rel="shortcut icon" href="images/gatesemfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="pagamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-area {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-area li {
+            margin: 0 15px;
+        }
+
+        .nav-area li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-area li a:hover {
+            color: #f01919;
+        }
+
+        
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+        @media (max-width: 768px) {
+            .nav-area {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+            }
+
+            .nav-area li {
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #ffffff;
+            }
+
+            .nav-area li a {
+                font-size: 20px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-area.active {
+                display: flex;
+            }
+        }
+    </style>
+    <style>
+        /* Estilos gerais */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+    
+        /* Botão de lixeira */
+        .row-item.delete-icon {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+        }
+    
+        /* Caixa de confirmação que aparece em cima do botão */
+        .confirmation-box {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        }
+    
+        .confirmation-box h2 {
+          margin-bottom: 20px;
+        }
+    
+        .confirmation-box button {
+          padding: 10px 20px;
+          font-size: 16px;
+          margin: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    
+        /* Botões de Sim/Não */
+        .btn-yes {
+          background-color: #ff4747;
+          color: white;
+        }
+    
+        .btn-no {
+          background-color: #ccc;
+          color: black;
+        }
+    
+        /* Estilo do fundo vermelho claro em torno da caixa de confirmação */
+        .confirmation-overlay {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 0, 0, 0.3); /* Vermelho claro */
+          z-index: 999;
+        }
+    
+        /* Responsividade */
+        @media (max-width: 768px) {
+          .confirmation-box {
+            width: 80%;
+          }
+        }
+    
+        @media (min-width: 769px) {
+          .confirmation-box {
+            width: 30%;
+          }
+        }
+      </style>
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <a href="index.html">
+            <img src="images/gatesemfundo.png" alt="Logo da Gate Development" width="50" height="auto">
+        </a>        
+        <nav>
+           
+            <ul class="nav-area top-nav">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="site.html">Sites</a></li>
+                <li><a href="bot.html">Bots</a></li>
+        </nav>
+        
+        <script>
+            function toggleMenu() {
+                const navArea = document.querySelector('.nav-area');
+                navArea.classList.toggle('active');
+            }
+        </script>
+    </div>
+</div>
+    </header>
+    <!-- navbar end -->
+    <!-- home -->
+    
+<main>
+<!-- Seção de Planos -->
+<section class="intro">
+    <p class="intro-text">Gate Development > Checkout</p>
+    <h2 class="intro-title">Finalize sua Compra com Segurança e Facilidade</h2>
+    <p class="intro-description">Estamos prontos para entregar um serviço de qualidade. Complete seu pagamento abaixo e tenha acesso aos nossos produtos e serviços exclusivos!</p>
+</section>
+
+
+<h3 class="rever-pedido-title">Confirmar Pedido</h3>
+
+<div class="table">
+  <!-- Cabeçalho da tabela -->
+  <div class="table-header">
+    <div class="header-item"><i class="fa fa-cube" style="font-size: 20px; color: #ff0000;"></i> Produto</div>
+    <div class="header-item"><i class="fa fa-dollar-sign" style="font-size: 20px; color: #ff0000;"></i> Planos</div>
+
+  </div>
+
+  <!-- Linha de conteúdo da tabela -->
+  <div class="table-row">
+    <div class="row-item product-name"><i class="fa fa-arrow-right" style="font-size: 20px; color: #ff0000;"></i> Landing Page</div>
+    <div class="row-item">
+      <div class="dropdown">
+        <button class="dropdown-btn">Escolha o plano</button>
+        <ul class="dropdown-options">
+          <li>Pagamento Único - R$450,00</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h3 class="payment-title">Formas de Pagamento</h3>
+        <div class="payment-option">
+          <input type="radio" id="pix" name="payment" value="pix" checked>
+          <label for="pix">
+            <span class="radio-icon"></span> Pix
+          </label>
+        </div>
+        
+        <div class="payment-option">
+          <input type="radio" id="boleto" name="payment" value="boleto" disabled>
+          <label for="boleto">
+            <span class="disabled-icon">X</span> Boleto
+          </label>
+        </div>
+        
+        <div class="payment-option">
+          <input type="radio" id="cartao" name="payment" value="cartao" disabled>
+          <label for="cartao">
+            <span class="disabled-icon">X</span> Cartão
+          </label>
+        </div>
+                                
+
+
+
+
+        <form id="payment-form">
+            <fieldset class="personal-info">
+                <legend>Informações do Cliente</legend>
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
+        
+                <label for="phone">Telefone:</label>
+        
+                <input type="tel" id="phone" name="phone" required placeholder="Digite seu número de telefone">
+                <label for="email">Seu Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Digite seu email">
+        
+                <label for="discord-username">Discord:</label>
+                <input type="text" id="discord-username" name="discord-username" required placeholder="Digite seu discord">
+        
+                <label for="no-account">
+                    <input type="checkbox" id="no-account" onclick="toggleDiscordField()"> Não tenho discord
+                </label>
+            </fieldset>
+        
+            <fieldset class="address-info">
+                <legend>Endereço de Cobrança</legend>
+                <label for="address">Endereço Completo:</label>
+                <input type="text" id="address" name="address" required placeholder="Rua, número, bairro">
+        
+                <label for="city">Cidade:</label>
+                <input type="text" id="city" name="city" required placeholder="Sua cidade">
+        
+                <label for="state">Estado:</label>
+                <input type="text" id="state" name="state" required placeholder="Estado (ex: SP)">
+        
+                <label for="zip-code">CEP:</label>
+                <input type="text" id="zip-code" name="zip-code" required placeholder="CEP (xxxxx-xxx)">
+            </fieldset>
+        </form>
+                    
+                    <script>
+                        function toggleDiscordField() {
+                            var discordField = document.getElementById('discord-username');
+                            var checkbox = document.getElementById('no-account');
+                    
+                            // Se o checkbox for marcado, desabilita o campo de entrada
+                            if (checkbox.checked) {
+                                discordField.disabled = true;
+                            } else {
+                                discordField.disabled = false;
+                            }
+                        }
+                    </script>        
+</form>
+
+
+
+
+
+
+
+
+
+
+<div id="edit-resumo" class="edit-resumo">
+    <div class="summary-content">
+        <h3>Resumo do Pedido</h3>
+        <table class="summary-table">
+            <tr>
+                <td class="summary-item">Mensal</td>
+                <td class="summary-value">R$ 30,00</td>
+            </tr>
+            <tr>
+                <td class="summary-item">Pagamento</td>
+                <td class="summary-value">Único</td>
+            </tr>
+            <tr>
+                <td class="summary-item"><strong>Total</strong></td>
+                <td class="summary-value"><strong>R$ 450,00</strong></td>
+            </tr>
+        </table>
+        <div id="check-payment-container" class="check-payment-container">
+            <p class="payment-description">Efetuou o pagamento? Clique aqui para checar seu pedido</p>
+            <button id="check-payment-btn" class="check-payment-btn" onclick="checkPayment()">Checar Pagamento</button>
+        </div>
+
+        <!-- Div para a mensagem após clicar no botão -->
+        <div id="payment-checked-message" class="payment-checked-message">
+            <p>Checando pagamento! Redirecionando...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkPayment() {
+        // Oculta o botão e a descrição
+        document.getElementById('check-payment-container').style.display = 'none';
+    
+        // Exibe a mensagem de pagamento checado
+        document.getElementById('payment-checked-message').style.display = 'block';
+    
+        // Redireciona para o index.html após 2 segundos
+        setTimeout(function() {
+            window.location.href = 'index.html';  // Redireciona para a página inicial
+        }, 6000);  // Tempo de espera em milissegundos (2 segundos)
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Div de pagamento -->
+<div id="payment-info">
+    <!-- Container para o e-mail -->
+    <div id="email-container">
+        <p><strong>Para efetuar o pagamento, envie o valor para a chave abaixo:</strong></p>
+        <p id="payment-email">contatogatedevelopment@gmail.com</p>
+    
+        <!-- Botão de copiar -->
+        <button id="copy-email">
+            <i class="fas fa-copy"></i> Copiar Chave-Pix
+        </button>
+    </div>
+    <p id="payment-message"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="wrapper">
+            <div class="foot">
+                <nav>
+                    <ul class="nav-area bottom-nav">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html">Serviços</a></li>
+                        <li><a href="index.html">Sobre Nós</a></li>
+                        <li><a href="index.html">FAQ</a></li>
+                    </ul>
+                </nav>
+                <h4>© 2024 Copyright - Gate Development</h4>
+                <div class="quick-contact">
+                    <a href="mailto:contatogatedevelopment@gmail.com" title="Email" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gate_development/" title="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://discord.gg/3aDA8PHWHp" title="Discord" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@GateDevelopment" title="Youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@gatedevelopment" title="Tik Tok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- footer end -->
+    <script src="pagamento.js"></script>
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</body>
+
+
+</html>

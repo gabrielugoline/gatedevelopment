@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Development | Bots</title>
+    <link rel="shortcut icon" href="images/gatesemfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="bot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-area {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-area li {
+            margin: 0 15px;
+        }
+
+        .nav-area li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-area li a:hover {
+            color: #f01919;
+        }
+
+        
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+        @media (max-width: 768px) {
+            .nav-area {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+            }
+
+            .nav-area li {
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #ffffff;
+            }
+
+            .nav-area li a {
+                font-size: 20px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-area.active {
+                display: flex;
+            }
+        }
+    </style>
+            <style>
+                /* Estilo básico para o botão */
+                button {
+                    background-color: #ff0000; /* Cor verde */
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+        
+                /* Estilo do ícone dentro do botão */
+                button i {
+                    margin-right: 8px; /* Espaço entre o ícone e o texto */
+                }
+        
+                /* Estilo do botão quando o mouse passa por cima */
+                button:hover {
+                    background-color: #ff0000; /* Cor verde mais escura */
+                }
+            </style>
+    </head>
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <a href="index.html">
+            <img src="images/gatesemfundo.png" alt="Logo da Gate Development" width="50" height="auto">
+        </a>        
+        <nav>
+           
+            <ul class="nav-area top-nav">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="site.html">Sites</a></li>
+        </nav>
+        <script>
+            function toggleMenu() {
+                const navArea = document.querySelector('.nav-area');
+                navArea.classList.toggle('active');
+            }
+        </script>
+
+</div>
+    </header>
+    <!-- navbar end -->
+    <!-- home -->
+
+
+
+<main>
+<!-- Seção de Planos -->
+<section class="intro">
+    <p class="intro-text">Gate Development > Desenvolvimento de Aplicações</p>
+    <h2 class="intro-title">Crie uma aplicação totalmente exclusiva para seu negócio!</h2>
+    <p class="intro-description">Na Gate Development, oferecemos uma estrutura completas para seu bot ou sistema. Conheça nossos planos que irão transformar sua presença online.</p>
+</section>
+
+
+<div class="plans-container">
+    <!-- Plano de Landing Page -->
+    <section id="landing-page" class="plan-box">
+        <h3><i class="fas fa-mobile-alt"></i> Bot Básico</h3>
+        <h4><span class="price">R$30,00/mês</span></h4>
+        <ul>
+            <li><span style="color: #ff0000;">✔</span> Sistema de Boas-vindas</li>
+            <li><span style="color: #ff0000;">✔</span> Comandos Básicos</li>
+            <li><span style="color: #ff0000;">✔</span> Gerenciamento Simples</li>
+            <li><span style="color: #ff0000;">✔</span> Customização Simples</li>
+            <li><span style="color: #ff0000;">✔</span> Design exclusivo </li>
+            <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+            <li><span style="color: #ff0000;">✔</span> Imagens</li>
+            <li><span style="color: #ff0000;">✔</span> Comandos Personalizados</li>
+            <li><span style="color: #ff0000;">✔</span> Anúncios</li><br>
+            <li><span style="color: #ff0000;">✔</span> Embeeds</li>
+            
+
+        </ul>
+        <a href="botbasico.html" class="add-to-cart" data-plan="Bot Básico" data-price="450.00">
+            <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+          </a>
+    </section>
+
+    <!-- Plano de Site Completo -->
+    <section id="site-completo" class="plan-box">
+        <h3><i class="fas fa-cogs"></i>Bot Avançado</h3>
+        <h4><span class="price">R$40,00/mês</span></h4>
+        <ul>
+            <li><span style="color: #ff0000;">✔</span> Sistema de Boas-vindas</li>
+            <li><span style="color: #ff0000;">✔</span> Comandos Interativos:</li>
+            <li><span style="color: #ff0000;">✔</span> Customização Avançada</li>
+            <li><span style="color: #ff0000;">✔</span> Design exclusivo </li>
+            <li><span style="color: #ff0000;">✔</span> Logs detalhadas</li>
+            <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+            <li><span style="color: #ff0000;">✔</span> Automação Avançada</li>
+        </ul>
+        <a href="botavancado.html" class="add-to-cart" data-plan="Bot Avançado" data-price="450.00">
+            <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+          </a>
+    </section>
+
+    <!-- Plano de E-commerce -->
+    <section id="ecommerce" class="plan-box">
+        <h3><i class="fas fa-store"></i>Bot Ticket</h3>
+        <h4><span class="price">R$25,00/mês</span></h4>
+        <ul>
+            <li><span style="color: #ff0000;">✔</span> Sistema de Tickets Automatizado</li>
+            <li><span style="color: #ff0000;">✔</span> Atendimento Personalizado</li>
+            <li><span style="color: #ff0000;">✔</span> Gerenciamento de Tickets</li>
+            <li><span style="color: #ff0000;">✔</span> Customização avançada</li>
+            <li><span style="color: #ff0000;">✔</span> Design exclusivo </li>
+            <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+            <li><span style="color: #ff0000;">✔</span> Controle de permissões</li>
+        </ul>
+        <a href="botticket.html" class="add-to-cart" data-plan="Bot Ticket" data-price="450.00">
+            <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+          </a>
+    </section>
+</div>
+
+   
+</section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="wrapper">
+            <div class="foot">
+                <nav>
+                    <ul class="nav-area bottom-nav">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html">Serviços</a></li>
+                        <li><a href="index.html">Sobre Nós</a></li>
+                        <li><a href="index.html">FAQ</a></li>
+                    </ul>
+                </nav>
+                <h4>© 2024 Copyright - Gate Development</h4>
+                <div class="quick-contact">
+                    <a href="mailto:contatogatedevelopment@gmail.com" title="Email" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gate_development/" title="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://discord.gg/3aDA8PHWHp" title="Discord" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@GateDevelopment" title="Youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@gatedevelopment" title="Tik Tok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- footer end -->
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</body>
+
+
+</html>
