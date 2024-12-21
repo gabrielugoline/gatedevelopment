@@ -660,6 +660,23 @@ header {
     color: #ff0000;
   }
   
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .table {
+        width: 100%;
+        max-width: 1200px;
+        margin: 60px auto;
+        background-color: #1a1a1a;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .dropdown-btn {
+        width: 100%;
+    }
+    .row-item h4 {
+        font-size: 14px;
+        }
+}
 
 
 /* Formulário */
@@ -1270,7 +1287,7 @@ float: right; /* Alinha o container à direita */
         transform: translateX(-6%); /* Move o container para a esquerda em 50% */
         text-align: center; /* Alinha o conteúdo dentro do container */
         position: relative; /* Posicionamento relativo */
-        top: 2200px; /* Move o container para baixo de forma independente */
+        top: 2470px; /* Move o container para baixo de forma independente */
     }
     #payment-info {
         padding-bottom: 500px

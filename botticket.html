@@ -202,26 +202,27 @@
 <h3 class="rever-pedido-title">Confirmar Pedido</h3>
 
 <div class="table">
-  <!-- Cabeçalho da tabela -->
-  <div class="table-header">
-    <div class="header-item"><i class="fa fa-cube" style="font-size: 20px; color: #ff0000;"></i> Produto</div>
-    <div class="header-item"><i class="fa fa-dollar-sign" style="font-size: 20px; color: #ff0000;"></i> Planos</div>
-
-  </div>
-
-  <!-- Linha de conteúdo da tabela -->
-  <div class="table-row">
-    <div class="row-item product-name"><i class="fa fa-arrow-right" style="font-size: 20px; color: #ff0000;"></i>Bot Ticket</div>
-    <div class="row-item">
-      <div class="dropdown">
-        <button class="dropdown-btn">Escolha o plano</button>
-        <ul class="dropdown-options">
-          <li>Pagamento Mensal - R$20,00</li>
-        </ul>
+    <!-- Cabeçalho da tabela -->
+    <div class="table-header">
+      <div class="header-item"><i class="fa fa-cube" style="font-size: 20px; color: #ff0000;"></i> Produto</div>
+      <div class="header-item"><i class="fa fa-dollar-sign" style="font-size: 20px; color: #ff0000;"></i> Planos</div>
+      <div class="header-item"><i class="fa fa-info-circle" style="font-size: 20px; color: #ff0000;"></i> Info</div>
+    </div>
+  
+    <!-- Linha de conteúdo da tabela -->
+    <div class="table-row">
+      <div class="row-item product-name"><i class="fa fa-arrow-right" style="font-size: 20px; color: #ff0000;"></i> Bot Ticket</div>
+      <div class="row-item">
+        <div class="dropdown">
+          <button class="dropdown-btn">Escolha o plano</button>
+          <ul class="dropdown-options">
+            <li>Pagamento Mensal - R$20,00</li>
+          </ul>
+        </div>
       </div>
+      <div class="row-item"><h4>Nos bots de discord a cobrança é feita apenas mensalmente.</h4></div>
     </div>
   </div>
-</div>
 
 
 
@@ -308,11 +309,12 @@
         </div>
         
         <div class="payment-option">
-          <input type="radio" id="cartao" name="payment" value="cartao" disabled>
-          <label for="cartao">
-            <span class="disabled-icon">X</span> Cartão
-          </label>
-        </div>
+            <input type="radio" id="cartao" name="payment" value="cartao" disabled>
+            <label for="cartao">
+              <span class="disabled-icon">X</span> Cartão de Crédito
+            </label>
+          </div>
+                    
                                 
 
 
@@ -431,21 +433,19 @@
 
 
 
+
 <!-- Div de pagamento -->
 <div id="payment-info">
     <!-- Container para o e-mail -->
     <div id="email-container">
-        <p><strong>Para efetuar o pagamento, envie o valor para a chave abaixo:</strong></p>
-        <p id="payment-email">contatogatedevelopment@gmail.com</p>
-    
-        <!-- Botão de copiar -->
-        <button id="copy-email">
-            <i class="fas fa-copy"></i> Copiar Chave-Pix
-        </button>
+        <p><strong>Para prosseguir com o pagamento, aponte seu celular para o código QR abaixo:</strong></p>
+        <p id="payment-email">
+            <img src="qr.png" alt="qr-code" style="width: 250px; height: auto;"/>
+          </p>          
+
     </div>
     <p id="payment-message"></p>
 </div>
-
 
 
 
