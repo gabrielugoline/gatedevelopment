@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <link rel="shortcut icon" href="images/gatesemfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-area {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-area li {
+            margin: 0 15px;
+        }
+
+        .nav-area li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-area li a:hover {
+            color: #f01919;
+        }
+
+        
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Tela de loading */
+#loading {
+    position: fixed;  /* Fixado na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Fundo escuro com transparência */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Carregar na frente de todos */
+    pointer-events: none; /* Impede interações com o loading */
+}
+
+/* Estilo do spinner */
+#loading .spinner {
+    border: 4px solid rgb(255, 255, 255);
+    border-top: 4px solid #ff0000; /* Cor vermelha */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+/* Efeito de rotação */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Desfoque de fundo (aplicado no body) */
+.blur-background {
+    position: relative; /* Cria um novo contexto de empilhamento */
+    z-index: 1; /* Coloca o fundo atrás do loading */
+}
+
+/* Desfoque do fundo */
+.blur-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Cor do filtro de desfoque */
+    filter: blur(5px); /* Intensidade do desfoque */
+    pointer-events: none; /* Desabilita interação com o fundo */
+    z-index: 0; /* Garante que o fundo fique atrás */
+}
+
+/* Conteúdo principal */
+#main-content {
+    position: relative;
+    z-index: 2; /* Conteúdo fica sobre o fundo desfocado */
+}
+
+        
+        @media (max-width: 768px) {
+            .nav-area {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+            }
+
+            .nav-area li {
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #ffffff;
+            }
+
+            .nav-area li a {
+                font-size: 20px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-area.active {
+                display: flex;
+            }
+        }
+    </style>
+   <style>
+.chatbox {
+        width: 1150px;
+        margin: 0 auto;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    .chat-header {
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .chat-messages {
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: transparent;
+    }
+
+    .chat-input {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: transparent;
+    }
+
+    .chat-input input {
+        flex: 250px; /* Faz o input ocupar mais espaço */
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .chat-input button {
+        position: fixed;
+        top: 470px;
+        margin-right: 8000px;
+        padding: 2px 4px; /* Deixa o botão pequeno */
+        font-size: 14px;
+        background-color: #ff0000;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: auto; /* Ajuste a largura do botão */
+        height: auto; /* Ajuste a altura do botão */
+    }
+
+    .chat-input button:hover {
+        background-color: #ff0000;
+    }
+
+    .typing-preview {
+        padding: 5px;
+        font-size: 14px;
+        color: gray;
+        font-style: italic;
+       
+    }
+
+    .message {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .bot-message {
+        flex-direction: row;
+    }
+
+    .bot-message img {
+        width: 40px; /* Reduz tamanho da imagem circular */
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .user-message {
+        justify-content: flex-end;
+    }
+
+    .user-message div {
+        background-color: #ff0000;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 70%;
+        width: auto; /* Ajuste a largura do botão */
+        height: auto; /* Ajuste a altura do botão */
+    }
+
+    .bot-message div {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 70%;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        margin: 5px 0;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #ff0000;
+        color: white;
+        width: auto; /* Ajuste a largura do botão */
+        height: auto; /* Ajuste a altura do botão */
+    }
+
+    .btn:hover {
+        background-color: #ee6d6d;
+    }
+
+        /* Versão mobile */
+        @media (max-width: 768px) {
+        .chatbox {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .chat-header {
+            font-size: 10px;
+        }
+
+        .chat-messages {
+            height: 250px;
+        }
+
+        .chat-input {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .chat-input input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .chat-input button {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .bot-message img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .user-message div {
+            max-width: 90%;
+        }
+
+        .bot-message div {
+            max-width: 90%;
+        }
+
+
+        .chat-input button {
+        position: fixed;
+        top: 370px;
+        margin-right: 8000px;
+        padding: 2px 4px; /* Deixa o botão pequeno */
+        font-size: 15px;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: auto; /* Ajuste a largura do botão */
+        height: auto; /* Ajuste a altura do botão */
+    }
+    .chat-input input {
+        flex: 25px; /* Faz o input ocupar mais espaço */
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .bot-message div {
+        background-color: #f1f1f1;
+        font-size: 13px;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 100%;
+    }
+
+    }
+
+    /* Versão extra-mobile (para telas menores) */
+    @media (max-width: 480px) {
+        .chat-header {
+            font-size: 14px;
+        }
+
+        .chat-messages {
+            height: 200px;
+        }
+
+        .chat-input input {
+            font-size: 12px;
+        }
+
+        .chat-input button {
+            font-size: 12px;
+        }
+
+
+        .chat-input button {
+        position: fixed;
+        top: 370px;
+        margin-right: 8000px;
+        padding: 2px 4px; /* Deixa o botão pequeno */
+        font-size: 15px;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: auto; /* Ajuste a largura do botão */
+        height: auto; /* Ajuste a altura do botão */
+    }
+    .chat-input input {
+        flex: 25px; /* Faz o input ocupar mais espaço */
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .bot-message div {
+        background-color: #f1f1f1;
+        font-size: 13px;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 100%;
+    }
+    }
+  </style>
+</head>
+<body>
+<!-- Tela de carregamento -->
+<div id="loading">
+    <div class="spinner"></div>
+</div>
+
+<script>
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('loading').style.visibility = 'hidden';  // Esconde o loading
+        document.body.classList.remove('blur-background');  // Remove o desfoque
+    }, 3000); // 4 segundos
+};
+
+// Adiciona a classe de desfoque ao carregar a página
+document.body.classList.add('blur-background');
+
+</script>
+    <!-- navbar -->
+    <header>
+        <a href="index.html">
+            <img src="images/gatesemfundo.png" alt="Logo da Gate Development" width="50" height="auto">
+        </a>        
+        <nav>
+           
+            <ul class="nav-area top-nav">
+                <li><a href="index.html">Início</a></li>
+        </nav>
+        
+        <script>
+            function toggleMenu() {
+                const navArea = document.querySelector('.nav-area');
+                navArea.classList.toggle('active');
+            }
+        </script>
+    </div>
+</div>
+    </header>
+    <!-- navbar end -->
+    <!-- home -->
+    
+<main>
+<!-- CHATBOX -->
+<div class="chatbox">
+    <div class="chat-header"></div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Digite sua resposta aqui..." oninput="showTyping(this.value)">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <div class="typing-preview" id="typingPreview"></div>
+</div>
+
+<script>
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+
+    const messages = [
+        {
+            text: "Olá, seja bem vindo ao Chatbox da Gate Development! Se você chegou até aqui imagino que esteja interessado em receber o orçamento de algum dos nossos serviços, correto?",
+            options: ["Correto"]
+        },
+        {
+            text: "Ótimo! Então, antes de saber do que você precisa, deixa eu te conhecer melhor. Qual o seu nome?",
+            input: true
+        },
+        {
+            text: "Certo, qual o seu e-mail?",
+            input: true
+        },
+        {
+            text: "Tudo certo, antes de passar o orçamento dos nossos produtos, só preciso fazer mais algumas perguntas. Em qual das categorias abaixo o seu projeto se enquadra?",
+            options: ["Para uso empresarial", "Para negócio pessoal"]
+        },
+        {
+            text: "Vamos para a parte principal, que tipo de demanda você precisa?",
+            options: [
+                "Landing page: Página única focada em uma ação específica, como captar leads ou promover algo.",
+                "Site completo: Site com várias páginas, ideal para empresas que precisam de mais conteúdo.",
+                "Loja virtual: Site de e-commerce para vender produtos online, com funcionalidades como carrinho de compras e pagamento."
+            ]
+        },
+        {
+            text: "Boa escolha! Por último, gostaria de entender sobre o seu prazo para iniciar o projeto",
+            options: ["Quero contato imediato", "Em até 3 dias", "Em até 7 dias", "Em até 1 mês"]
+        },
+        {
+            text: "Perfeito! Clique no botão abaixo para continuar a conversa no WhatsApp e prosseguir com as informações do seu projeto e pagamento.",
+            button: true
+        }
+    ];
+
+    let currentStep = 0;
+    let userName = ''; // Variável para armazenar o nome do usuário
+    let selectedProduct = ''; // Variável para armazenar o produto escolhido
+
+    function renderMessage(message, fromBot = true) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', fromBot ? 'bot-message' : 'user-message');
+
+        const messageContent = document.createElement('div');
+        messageContent.textContent = message;
+
+        if (fromBot) {
+            const botImg = document.createElement('img');
+            botImg.src = 'images/botcircular.png';
+            messageDiv.appendChild(botImg);
+        }
+
+        messageDiv.appendChild(messageContent);
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function renderOptions(options) {
+        options.forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = option;
+            button.classList.add('btn');
+            button.onclick = () => handleOption(option);
+            chatMessages.appendChild(button);
+        });
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function renderProceedButton() {
+        const button = document.createElement('button');
+        button.textContent = "Prosseguir";
+        button.classList.add('btn');
+        button.onclick = () => nextStep();
+        chatMessages.appendChild(button);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function renderWhatsAppButton() {
+        const button = document.createElement('button');
+        button.textContent = "WhatsApp";
+        button.classList.add('btn');
+        button.onclick = () => {
+            const whatsappURL = "https://wa.me/5531997893392?text=Olá, gostaria de prosseguir com meu projeto e confirmar o orçamento!";
+            window.open(whatsappURL, '_blank');
+        };
+        chatMessages.appendChild(button);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function handleOption(option) {
+        renderMessage(option, false);
+        setTimeout(() => {
+            if (currentStep === 4) { // Se o usuário escolher um dos produtos
+                if (option.includes("Landing page")) {
+                    renderMessage("Preço: A partir de R$450,00 + R$30,00/mês");
+                } else if (option.includes("Site completo")) {
+                    renderMessage("Preço: A partir de R$700,00 + R$35,00/mês");
+                } else if (option.includes("Loja virtual")) {
+                    renderMessage("Preço: A partir de R$1.100,00 + R$60,00/mês");
+                }
+                renderProceedButton(); // Adiciona o botão de prosseguir
+                currentStep++;
+            } else {
+                currentStep++;
+                nextStep(option);
+            }
+        }, 500);
+    }
+
+    function nextStep(userInputValue = '') {
+    const currentMessage = messages[currentStep];
+
+    if (!currentMessage) return;
+
+    if (currentMessage.input) {
+        if (currentStep === 1) {
+            // Atribui o nome na segunda pergunta
+            userName = userInputValue;
+            renderMessage(currentMessage.text); // Exibe a mensagem sem substituir o nome ainda
+        } else {
+            renderMessage(currentMessage.text.replace('(nome)', userName)); // Substitui o nome depois de coletá-lo
+        }
+    } else if (currentMessage.button) {
+        renderMessage(currentMessage.text.replace('(nome)', userName)); // Exibe o texto da última mensagem
+        renderWhatsAppButton();
+    } else {
+        renderMessage(currentMessage.text.replace('(nome)', userName)); // Substitui o nome nas mensagens seguintes
+        if (currentMessage.options) {
+            renderOptions(currentMessage.options);
+        }
+    }
+}
+
+
+    function sendMessage() {
+        const userMessage = userInput.value.trim();
+        if (userMessage === '') return;
+
+        renderMessage(userMessage, false);
+        userInput.value = '';
+
+        setTimeout(() => {
+            currentStep++;
+            nextStep(userMessage);
+        }, 500);
+    }
+
+    nextStep();
+</script>
+
+
+
+   
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</body>
+</html>

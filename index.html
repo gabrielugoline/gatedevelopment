@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Development</title>
+    <link rel="shortcut icon" href="images/gatesemfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-area {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-area li {
+            margin: 0 15px;
+        }
+
+        .nav-area li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-area li a:hover {
+            color: #f01919;
+        }
+
+        
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+        @media (max-width: 768px) {
+            .nav-area {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+            }
+
+            .nav-area li {
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #ffffff;
+            }
+
+            .nav-area li a {
+                font-size: 20px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-area.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navbar -->
+    <header>
+        <a href="index.html">
+            <img src="images/gatesemfundo.png" alt="Logo da Gate Development" width="50" height="auto">
+        </a>        
+        <nav>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="nav-area top-nav">
+                <li><a href="chatbox.html">Orçamento</a></li>
+                <li><a href="chatbox.html">Serviços</a></li>
+                <li><a href="#commands">Portifólio</a></li>
+                <li><a href="#commands">Sobre</a></li>
+                <li><a href="#commands">Planos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        
+        <script>
+            function toggleMenu() {
+                const navArea = document.querySelector('.nav-area');
+                navArea.classList.toggle('active');
+            }
+        </script>
+    </header>
+    <!-- navbar end -->
+    <!-- home -->
+    <div class="wrapper">
+        <div class="home" id="home">
+            <div class="home-text">
+                <h1 id="botname"></h1>
+                <h3 style="margin-left: 0;"><span style="color: rgb(255, 255, 255);">Seu</span> <span style="color: red;">Portal</span> <span style="color: rgb(255, 255, 255);">para o Futuro</span> <span style="color: red;">Digital!</span></h3>
+                <p class="bot-description">Sua Nova Parceira em Soluções Digitais. Transformamos ideias em resultados, nossa equipe é dedicada e treinada a entregar projetos com qualidade, inovação e atenção aos detalhes. Contamos com uma equipe atensiosa e ativa 24 horas para atendimento. Impulsione o seu negócio com a Gate Development! </p>
+                <button class="home-btn" onclick="window.location.href='chatbox.html'">Peça um Orçamento</button>
+
+            </div>
+            <div class="home-img">
+                <img src="images/botcircular.png"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <!-- home end -->
+    <!-- features -->
+    <div class="features">
+        <div class="curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill-opacity="1" id="features"
+                    d="M0,128L48,149.3C96,171,192,213,288,229.3C384,245,480,235,576,202.7C672,171,768,117,864,96C960,75,1056,85,1152,106.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="wrapper reveal">
+            <div class="title">
+                <div class="th1">
+                    <h1>O que fornecemos?</h1>
+                </div>
+                <center>
+                    <div class="thr">
+                        <hr>
+                    </div>
+                </center>
+            </div>
+            <!-- feature start -->
+            <div class="features-grid">
+                <div class="feature feature1">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h4><span style="color: rgb(255, 255, 255);">Desenvolvimento de Sites e Aplicações Web</span></h4>
+                    <p>Projetamos e desenvolvemos <span style="color: #ff0000;">sites e aplicações</span>  responsivos, exclusivas e otimizados para proporcionar uma experiência de usuário 100% profissional.</p>
+                </div>
+                <!-- feature end -->
+                <!-- feature start -->
+                <div class="feature feature2">
+                    <i class="fas fa-server"></i>
+                    <h4><span style="color: rgb(255, 255, 255);">Suporte e Manutenção</span></h4>
+                    <p>Oferecemos suporte total dos nossos produtos em até <span style="color: #ff0000;">120 horas</span>  após a compra gratuitamente em serviços de manutenção para que seus sistemas estejam atualizados e funcionando sempre.</p>
+                </div>
+                <!-- feature end -->
+                <!-- feature start -->
+                <div class="feature feature3">
+                    <i class="fab fa-angellist"></i>
+                    <h4><span style="color: rgb(255, 255, 255);">Desenvolvimento de Aplicações</span></h4>
+                    <p>Criamos aplicações sob medida para atender às suas necessidades específicas, desde sistemas de gestão, bots do discord até soluções móveis e web.</p>
+                </div>
+                <!-- feature end -->
+            </div>
+        </div>
+        <div class="curved">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill-opacity="1" id="commands"
+                    d="M0,224L48,229.3C96,235,192,245,288,218.7C384,192,480,128,576,133.3C672,139,768,213,864,229.3C960,245,1056,203,1152,186.7C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <!-- features end -->
+
+<!-- Portifolio -->
+<section class="main-project main-width" id="project">
+    <div class="wrapper reveal">
+    <h1>Nosso Portfólio</h1>
+    <center>
+        <div class="thr">
+            <hr>
+        </div>
+    </center>
+<div id="project" class="colorBk-project">
+  <div class="wrapper-project">
+    <div class="container">
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/d.png"
+            alt="Imagem de um jogo da memoria"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+              <h3><span style="color: #ff0000;">Auto Elétrica HC</span</h3>
+            </div>
+            <a
+              class="btnEnter"
+              href="https://eletricahc.vercel.app"
+              ><span style="color: #ff0000;">Visitar</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/c.png"
+            alt="Imagem de uma calculadora, um cronometro e um relogio"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+                <h3><span style="color: #ff0000;">AutoEscola Águia</span</h3>
+            </div>
+            <a
+              class="btnEnter"
+              href="https://autoescola-aguia.vercel.app"
+              ><span style="color: #ff0000;">Visitar</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/b.png"
+            alt="Imagem de dois projetos'"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+                <h3><span style="color: #ff0000;">Academia Callado Trainer</span</h3>
+            </div>
+            <a
+              class="btnEnter"
+              href="https://calladotrainer.vercel.app"
+              ><span style="color: #ff0000;">Visitar</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/e.png"
+            alt="Imagem de um menu de restaurante"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+                <h3><span style="color: #ff0000;">MrFelipe Barbearia</span</h3>
+            </div>
+            <a
+              class="btnEnter"
+              href="https://mrfelipebarbearia.vercel.app"
+              ><span style="color: #ff0000;">Visitar</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/f.png"
+            alt="Imagem escrito 'em construção'"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+                <h3><span style="color: #ff0000;">Kicks Store</span</h3>
+            </div>
+            <a class="btnEnter" href="https://kicks-store-sooty.vercel.app"><span style="color: #ff0000;">Visitar</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="images/g.png"
+            alt="Imagem escrito 'em construção'"
+          />
+        </div>
+        <div class="contentBx">
+          <div class="content">
+            <div>
+                <h3><span style="color: #ff0000;">Senhora Empada</span</h3>
+            </div>
+            <a class="btnEnter" href="https://senhora-empada.vercel.app"><span style="color: #ff0000;">Visitar</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+    <!-- commands -->
+    <div class="wrapper reveal">
+        <div class="title">
+            <div class="th1">
+                <h1>Sobre Nós</h1>
+            </div>
+            <center>
+                <div class="thr">
+                    <hr>
+                </div>
+            </center>
+        </div>
+        <!-- Seção Sobre Nós -->
+        <nav>
+        </nav>
+        <!-- Informações -->
+         
+        <div class="commands">
+            <!-- Informações Sobre a História -->
+            <div class="command" data-name="our-story">
+                
+                <span>
+                    <div class="cmdinfo">
+                        <p>A Gate Development nasceu da paixão por tecnologia e da vontade de transformar ideias em realidade, fundada por <span style="color: #ff0000;">Gabriel Ugoline</span>. Desde o início, buscamos nos diferenciar pelo <span style="color: #ff0000;">comprometimento</span> com a qualidade e a inovação, oferecendo soluções personalizadas que atendem às necessidades de cada cliente.
+                            <br><br>
+                            Somos especializados no desenvolvimento de sistemas robustos, projetos <span style="color: #ff0000;">front-end</span> , bots para Discord e sites modernos e responsivos. Nosso foco está em criar soluções tecnológicas eficientes e criativas, sempre com um design intuitivo e funcionalidades que entregam resultados reais.
+                            <br><br>
+                            Nossa equipe se mantém atualizada com as últimas tendências tecnológicas, garantindo que cada projeto não apenas atenda, mas supere as <span style="color: #ff0000;">expectativas</span>. Trabalhamos lado a lado com você para transformar suas ideias em soluções inovadoras.
+                            <br><br>
+                            Nosso objetivo é ser sua <span style="color: #ff0000;">primeira escolha</span>, proporcionando uma experiência única e satisfatória. Se você busca uma parceria confiável para transformar seus projetos em realidade, a Gate Development é a escolha certa!
+                            <br><br></p>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>    
+    <!-- commands end -->
+
+
+    <main>
+        <!-- Seção de Planos -->
+             <div class="wrapper reveal">
+        <div class="title">
+            <div class="th4">
+                <h1></h1>
+            </div>
+        </div>
+            <h2 class="intro-title">Nossos planos</h2>
+            <center>
+                <div class="thr">
+                    <hr>
+                </div>
+            </center>
+        <div class="plans-container">
+            <!-- Plano de Landing Page -->
+            <section id="landing-page" class="plan-box">
+                <h3><i class="fas fa-mobile-alt"></i> Landing Page</h3>
+                <h4>A partir de <span class="price">R$450,00</span> + R$30,00/mês</h4>
+                <ul>
+                    <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
+                    <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
+                    <li><span style="color: #ff0000;">✔</span> Utilização de palavras-chave</li>
+                    <li><span style="color: #ff0000;">✔</span> Estrutura simplificada</li>
+                    <li><span style="color: #ff0000;">✔</span> Layout moderno e responsivo</li>
+                    <li><span style="color: #ff0000;">✔</span> 1 página de conteúdo</li>
+                    <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+                    <li><span style="color: #ff0000;">✔</span> Imagens</li>
+                </ul>
+                <a href="chatbox.html" class="add-to-cart" data-plan="Landing Page" data-price="450.00">
+                    <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+                  </a>
+            </section>
+            <!-- Plano de Site Completo -->
+            <section id="site-completo" class="plan-box">
+                <h3><i class="fas fa-cogs"></i> Site Completo</h3>
+                <h4>A partir de <span class="price">R$700,00</span> + R$35,00/mês</h4>
+                <ul>
+                    <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
+                    <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
+                    <li><span style="color: #ff0000;">✔</span> Utilização de palavras-chave</li>
+                    <li><span style="color: #ff0000;">✔</span> Estrutura complexa</li>
+                    <li><span style="color: #ff0000;">✔</span> Layout moderno e responsivo</li>
+                    <li><span style="color: #ff0000;">✔</span> 5 páginas de conteúdo</li>
+                    <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+                    <li><span style="color: #ff0000;">✔</span> Imagens</li>
+                </ul>
+                <a href="chatbox.html" class="add-to-cart" data-plan="Site Completo" data-price="450.00">
+                    <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+                  </a>
+            </section>
+            <!-- Plano de E-commerce -->
+            <section id="ecommerce" class="plan-box">
+                <h3><i class="fas fa-store"></i> E-commerce</h3>
+                <h4>A partir de  <span class="price">R$1.100,00</span> + R$60,00/mês</h4>
+                <ul>
+                    <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
+                    <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
+                    <li><span style="color: #ff0000;">✔</span> Carrinho de Compras</li>
+                    <li><span style="color: #ff0000;">✔</span> Checkout Rápido</li>
+                    <li><span style="color: #ff0000;">✔</span> Layout moderno e responsivo</li>
+                    <li><span style="color: #ff0000;">✔</span> 15 produtos listados</li>
+                    <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+                    <li><span style="color: #ff0000;">✔</span> Catálogo de Produtos</li>
+                </ul>
+                <a href="chatbox.html" class="add-to-cart" data-plan="E-commerce" data-price="450.00">
+                    <button><i class="fas fa-shopping-cart" style="font-size: 20px; color: #ffffff;"></i> Adquirir</button>
+                  </a>
+            </section>
+        </div>
+            </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- faq -->
+    <div class="faq">
+        <div class="curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill-opacity="1" id="faq"
+                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="wrapper reveal">
+            <main id="questions" role="main">
+                <div class="title">
+                    <div class="th1">
+                        <h1>Perguntas Frequentes</h1>
+                    </div>
+                    <center>
+                        <div class="thr">
+                            <hr>
+                        </div>
+                    </center>
+                </div>
+                <input type="text" class="live-search-box" placeholder="Pesquise uma resposta..." />
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+
+                        <h2 class="question">1. Quais serviços a Gate Development oferece?</h2>
+                        <span class="faq-t"></span>
+                    </div>
+                    <p class="answer">Oferecemos desenvolvimento de sites, criação de scripts personalizados, manutenção de sistemas, consultoria em TI e Bots Discord.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">2. A Gate Development atende clientes de todos os tamanhos?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Sim, atendemos desde pequenas empresas até grandes organizações, adaptando nossas soluções às necessidades específicas de cada cliente.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">3. Qual é o prazo médio para o desenvolvimento de um projeto?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> O prazo pode variar conforme a complexidade do projeto, mas geralmente, um projeto padrão pode ser entregue em 2 a 4 semanas.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">4. A Gate Development oferece suporte técnico após a entrega do projeto?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Sim, oferecemos suporte técnico de até 120 horas para garantir que seus sistemas estejam sempre atualizados e funcionando corretamente.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">5. Como posso solicitar um orçamento para o meu projeto?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Você pode entrar em contato conosco através do nosso discord, outras redes sociais da gate ou enviar um e-mail para contatogatedevelopment@gmail.com com detalhes sobre seu projeto, e nós forneceremos um orçamento personalizado.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">6. Vocês têm experiência em integrações com outras plataformas?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Sim, temos experiência em integrar nossos sistemas com diversas plataformas e APIs, adaptando soluções às suas necessidades.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">7. A Gate Development oferece treinamento para o uso das soluções desenvolvidas?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Sim, oferecemos treinamento para nossos clientes, garantindo que você e sua equipe saibam como utilizar as ferramentas e sistemas desenvolvidos.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">8. Como posso acompanhar o progresso do meu projeto durante o desenvolvimento?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Mantemos comunicação constante com nossos clientes e fornecemos atualizações regulares sobre o progresso do projeto através de reuniões e relatórios.</p>
+                </div>
+                <!-- question end -->
+                <!-- question start -->
+                <div class="topic">
+                    <div class="open">
+                        <h2 class="question">9. Quais métodos de pagamento a Gate Development aceita?
+                        </h2><span class="faq-t"></span>
+                    </div>
+                    <p class="answer"> Aceitamos diversas formas de pagamento, incluindo pix, mercado pago e PayPal, facilitando a negociação conforme a preferência do cliente.</p>
+                </div>
+                <!-- question end -->
+            </main>
+        </div>
+        <div class="curve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill-opacity="1"
+                    d="M0,32L48,80C96,128,192,224,288,218.7C384,213,480,107,576,96C672,85,768,171,864,176C960,181,1056,107,1152,64C1248,21,1344,11,1392,5.3L1440,0L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <!-- faq end -->
+    <!-- footer -->
+    <footer>
+        <div class="wrapper">
+            <div class="foot">
+                <nav>
+                    <ul class="nav-area bottom-nav">
+                        <li><a href="#top">Início</a></li>
+                        <li><a href="chatbox.html">Orçamento</a></li>
+                        <li><a href="chatbox.html">Serviços</a></li>
+                        <li><a href="#commands">Portifólio</a></li>
+                        <li><a href="#commands">Sobre</a></li>
+                        <li><a href="#commands">Planos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+                <h4>© 2024 Todos Direitos Reservados - Gate Development Ltda.</h4>
+                <div class="quick-contact">
+                    <a href="mailto:contatogatedevelopment@gmail.com" title="Email" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/gate_development/" title="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://discord.gg/3aDA8PHWHp" title="Discord" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@GateDevelopment" title="Youtube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@gatedevelopment" title="Tik Tok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- footer end -->
+    <script src="main.js"></script>
+    <script src="commands.js"></script>
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</body>
+
+
+</html>
