@@ -95,10 +95,10 @@
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <ul class="nav-area top-nav">
                 <li><a href="chatbox.html">Orçamento</a></li>
-                <li><a href="chatbox.html">Serviços</a></li>
-                <li><a href="#commands">Portifólio</a></li>
-                <li><a href="#commands">Sobre</a></li>
-                <li><a href="#commands">Planos</a></li>
+                <li><a href="#features">Serviços</a></li>
+                <li><a href="#project">Portifólio</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#plans">Planos</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
@@ -117,12 +117,12 @@
             <div class="home-text">
                 <h1 id="botname"></h1>
                 <h3 style="margin-left: 0;"><span style="color: rgb(255, 255, 255);">Seu</span> <span style="color: red;">Portal</span> <span style="color: rgb(255, 255, 255);">para o Futuro</span> <span style="color: red;">Digital!</span></h3>
-                <p class="bot-description">Sua Nova Parceira em Soluções Digitais. Transformamos ideias em resultados, nossa equipe é dedicada e treinada a entregar projetos com qualidade, inovação e atenção aos detalhes. Contamos com uma equipe atensiosa e ativa 24 horas para atendimento. Impulsione o seu negócio com a Gate Development! </p>
+                <p class="bot-description">Transformamos ideias em resultados. Impulsione agora o seu negócio com a Gate Development! </p>
                 <button class="home-btn" onclick="window.location.href='chatbox.html'">Peça um Orçamento</button>
 
             </div>
             <div class="home-img">
-                <img src="images/botcircular.png"
+                <img src="images/gateletrasemfundo.png"
                     alt="">
             </div>
         </div>
@@ -313,7 +313,7 @@
 
 
     <!-- commands -->
-    <div class="wrapper reveal">
+    <div class="wrapper reveal" id="about">
         <div class="title">
             <div class="th1">
                 <h1>Sobre Nós</h1>
@@ -354,7 +354,7 @@
     <main>
         <!-- Seção de Planos -->
              <div class="wrapper reveal">
-        <div class="title">
+        <div class="title" id="plans">
             <div class="th4">
                 <h1></h1>
             </div>
@@ -369,7 +369,6 @@
             <!-- Plano de Landing Page -->
             <section id="landing-page" class="plan-box">
                 <h3><i class="fas fa-mobile-alt"></i> Landing Page</h3>
-                <h4>A partir de <span class="price">R$450,00</span> + R$30,00/mês</h4>
                 <ul>
                     <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
                     <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
@@ -387,7 +386,6 @@
             <!-- Plano de Site Completo -->
             <section id="site-completo" class="plan-box">
                 <h3><i class="fas fa-cogs"></i> Site Completo</h3>
-                <h4>A partir de <span class="price">R$700,00</span> + R$35,00/mês</h4>
                 <ul>
                     <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
                     <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
@@ -405,7 +403,6 @@
             <!-- Plano de E-commerce -->
             <section id="ecommerce" class="plan-box">
                 <h3><i class="fas fa-store"></i> E-commerce</h3>
-                <h4>A partir de  <span class="price">R$1.100,00</span> + R$60,00/mês</h4>
                 <ul>
                     <li><span style="color: #ff0000;">✔</span> Sites rápidos</li>
                     <li><span style="color: #ff0000;">✔</span> Fácil Navegação</li>
@@ -414,6 +411,7 @@
                     <li><span style="color: #ff0000;">✔</span> Layout moderno e responsivo</li>
                     <li><span style="color: #ff0000;">✔</span> 15 produtos listados</li>
                     <li><span style="color: #ff0000;">✔</span> Integração com links externos</li>
+                    <li><span style="color: #ff0000;">✔</span> Imagens</li>
                     <li><span style="color: #ff0000;">✔</span> Catálogo de Produtos</li>
                 </ul>
                 <a href="chatbox.html" class="add-to-cart" data-plan="E-commerce" data-price="450.00">
@@ -422,18 +420,6 @@
             </section>
         </div>
             </main>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -560,14 +546,14 @@
                     <ul class="nav-area bottom-nav">
                         <li><a href="#top">Início</a></li>
                         <li><a href="chatbox.html">Orçamento</a></li>
-                        <li><a href="chatbox.html">Serviços</a></li>
-                        <li><a href="#commands">Portifólio</a></li>
-                        <li><a href="#commands">Sobre</a></li>
-                        <li><a href="#commands">Planos</a></li>
+                        <li><a href="#features">Serviços</a></li>
+                        <li><a href="#project">Portifólio</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#plans">Planos</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </nav>
-                <h4>© 2024 Todos Direitos Reservados - Gate Development Ltda.</h4>
+                <h4>© 2024 Todos Direitos Reservados - Gate Development</h4>
                 <div class="quick-contact">
                     <a href="mailto:contatogatedevelopment@gmail.com" title="Email" target="_blank">
                         <i class="fas fa-envelope"></i>
@@ -575,7 +561,7 @@
                     <a href="https://www.instagram.com/gate_development/" title="Instagram" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://discord.gg/3aDA8PHWHp" title="Discord" target="_blank">
+                    <a href="https://discord.gg/gatedevelopment" title="Discord" target="_blank">
                         <i class="fab fa-discord"></i>
                     </a>
                     <a href="https://www.youtube.com/@GateDevelopment" title="Youtube" target="_blank">

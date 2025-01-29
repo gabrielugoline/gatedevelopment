@@ -158,7 +158,7 @@
     }
 
     .chat-messages {
-        height: 300px;
+        height: 500px;
         overflow-y: auto;
         padding: 10px;
         background-color: transparent;
@@ -180,19 +180,22 @@
     }
 
     .chat-input button {
-        position: fixed;
-        top: 470px;
-        margin-right: 8000px;
-        padding: 2px 4px; /* Deixa o botão pequeno */
-        font-size: 14px;
-        background-color: #ff0000;
-        color: rgb(255, 255, 255);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: auto; /* Ajuste a largura do botão */
-        height: auto; /* Ajuste a altura do botão */
-    }
+    position: absolute;
+    top: 540px;
+    margin-left: 5px;
+    padding: 3px 3px; /* Aumenta o tamanho do botão */
+    font-size: 15px; /* Aumenta o tamanho da fonte */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Deixa o botão totalmente circular */
+    cursor: pointer;
+    width: 50px; /* Define uma largura fixa */
+    height: 50px; /* Define uma altura fixa para manter o formato */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
     .chat-input button:hover {
         background-color: #ff0000;
@@ -259,7 +262,7 @@
     }
 
     .btn:hover {
-        background-color: #ee6d6d;
+        background-color: #f32828;
     }
 
         /* Versão mobile */
@@ -274,7 +277,7 @@
         }
 
         .chat-messages {
-            height: 250px;
+            height: 600px;
         }
 
         .chat-input {
@@ -288,10 +291,22 @@
         }
 
         .chat-input button {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 10px;
-        }
+    position: absolute;
+    top: 630px;
+    margin-left: 5px;
+    padding: 3px 3px; /* Aumenta o tamanho do botão */
+    font-size: 15px; /* Aumenta o tamanho da fonte */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Deixa o botão totalmente circular */
+    cursor: pointer;
+    width: 50px; /* Define uma largura fixa */
+    height: 50px; /* Define uma altura fixa para manter o formato */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
         .bot-message img {
             width: 35px;
@@ -308,19 +323,22 @@
 
 
         .chat-input button {
-        position: fixed;
-        top: 370px;
-        margin-right: 8000px;
-        padding: 2px 4px; /* Deixa o botão pequeno */
-        font-size: 15px;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: auto; /* Ajuste a largura do botão */
-        height: auto; /* Ajuste a altura do botão */
-    }
+    position: absolute;
+    top: 630px;
+    margin-left: 5px;
+    padding: 3px 3px; /* Aumenta o tamanho do botão */
+    font-size: 15px; /* Aumenta o tamanho da fonte */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Deixa o botão totalmente circular */
+    cursor: pointer;
+    width: 50px; /* Define uma largura fixa */
+    height: 50px; /* Define uma altura fixa para manter o formato */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     .chat-input input {
         flex: 25px; /* Faz o input ocupar mais espaço */
         padding: 12px;
@@ -346,32 +364,35 @@
         }
 
         .chat-messages {
-            height: 200px;
+            height: 600px;
         }
 
         .chat-input input {
             font-size: 12px;
+            margin-top: -20px;
         }
 
         .chat-input button {
             font-size: 12px;
         }
 
-
         .chat-input button {
-        position: fixed;
-        top: 370px;
-        margin-right: 8000px;
-        padding: 2px 4px; /* Deixa o botão pequeno */
-        font-size: 15px;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: auto; /* Ajuste a largura do botão */
-        height: auto; /* Ajuste a altura do botão */
-    }
+    position: absolute;
+    top: 630px;
+    margin-left: 5px;
+    padding: 3px 3px; /* Aumenta o tamanho do botão */
+    font-size: 15px; /* Aumenta o tamanho da fonte */
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Deixa o botão totalmente circular */
+    cursor: pointer;
+    width: 50px; /* Define uma largura fixa */
+    height: 50px; /* Define uma altura fixa para manter o formato */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     .chat-input input {
         flex: 25px; /* Faz o input ocupar mais espaço */
         padding: 12px;
@@ -434,9 +455,8 @@ document.body.classList.add('blur-background');
 <main>
 <!-- CHATBOX -->
 <div class="chatbox">
-    <div class="chat-header"></div>
     <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input">
+    <div class="chat-input" id="chatInput">
         <input type="text" id="userInput" placeholder="Digite sua resposta aqui..." oninput="showTyping(this.value)">
         <button onclick="sendMessage()">Enviar</button>
     </div>
@@ -446,6 +466,7 @@ document.body.classList.add('blur-background');
 <script>
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
+    const chatInput = document.getElementById('chatInput');
 
     const messages = [
         {
@@ -483,26 +504,25 @@ document.body.classList.add('blur-background');
     ];
 
     let currentStep = 0;
-    let userName = ''; // Variável para armazenar o nome do usuário
-    let selectedProduct = ''; // Variável para armazenar o produto escolhido
+    let userName = '';
 
     function renderMessage(message, fromBot = true) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', fromBot ? 'bot-message' : 'user-message');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', fromBot ? 'bot-message' : 'user-message');
 
-        const messageContent = document.createElement('div');
-        messageContent.textContent = message;
+    const messageContent = document.createElement('div');
+    messageContent.textContent = message;
 
-        if (fromBot) {
-            const botImg = document.createElement('img');
-            botImg.src = 'images/botcircular.png';
-            messageDiv.appendChild(botImg);
-        }
-
-        messageDiv.appendChild(messageContent);
-        chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+    if (fromBot) {
+        const botImg = document.createElement('img');
+        botImg.src = 'images/gateredonda.png';
+        messageDiv.appendChild(botImg);
     }
+
+    messageDiv.appendChild(messageContent);
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
     function renderOptions(options) {
         options.forEach(option => {
@@ -539,15 +559,15 @@ document.body.classList.add('blur-background');
     function handleOption(option) {
         renderMessage(option, false);
         setTimeout(() => {
-            if (currentStep === 4) { // Se o usuário escolher um dos produtos
+            if (currentStep === 4) {
                 if (option.includes("Landing page")) {
-                    renderMessage("Preço: A partir de R$450,00 + R$30,00/mês");
+                    renderMessage("Preço: A partir de R$380,00 + R$30,00/mês");
                 } else if (option.includes("Site completo")) {
-                    renderMessage("Preço: A partir de R$700,00 + R$35,00/mês");
+                    renderMessage("Preço: A partir de R$500,00 + R$40,00/mês");
                 } else if (option.includes("Loja virtual")) {
-                    renderMessage("Preço: A partir de R$1.100,00 + R$60,00/mês");
+                    renderMessage("Preço: A partir de R$900,00 + R$60,00/mês");
                 }
-                renderProceedButton(); // Adiciona o botão de prosseguir
+                renderProceedButton();
                 currentStep++;
             } else {
                 currentStep++;
@@ -562,37 +582,80 @@ document.body.classList.add('blur-background');
     if (!currentMessage) return;
 
     if (currentMessage.input) {
+        chatInput.style.display = 'flex'; // Mostra o campo de input
         if (currentStep === 1) {
-            // Atribui o nome na segunda pergunta
             userName = userInputValue;
-            renderMessage(currentMessage.text); // Exibe a mensagem sem substituir o nome ainda
+            renderMessage(currentMessage.text);
         } else {
-            renderMessage(currentMessage.text.replace('(nome)', userName)); // Substitui o nome depois de coletá-lo
+            renderMessage(currentMessage.text.replace('(nome)', userName));
         }
-    } else if (currentMessage.button) {
-        renderMessage(currentMessage.text.replace('(nome)', userName)); // Exibe o texto da última mensagem
-        renderWhatsAppButton();
     } else {
-        renderMessage(currentMessage.text.replace('(nome)', userName)); // Substitui o nome nas mensagens seguintes
-        if (currentMessage.options) {
-            renderOptions(currentMessage.options);
-        }
+        chatInput.style.display = 'none'; // Esconde o campo de input
+
+        // Adiciona a mensagem do bot com intervalo
+        setTimeout(() => {
+            renderMessage(currentMessage.text.replace('(nome)', userName));
+            
+            // Só mostra as opções depois que a mensagem for exibida
+            if (currentMessage.options && currentMessage.options.length > 2) {
+                setTimeout(() => {
+                    renderMessage("Escolha uma opção");
+                }, 500); // Atraso para a mensagem de escolha
+            }
+
+            if (currentMessage.options) {
+                setTimeout(() => {
+                    renderOptions(currentMessage.options);
+                }, 1000); // Atraso para mostrar as opções
+            }
+
+            // Mostra o botão de WhatsApp após um intervalo adicional
+            if (currentMessage.button) {
+                setTimeout(() => {
+                    renderWhatsAppButton();
+                }, 1500); // Atraso para mostrar o botão do WhatsApp
+            }
+
+        }, 1000); // Tempo em milissegundos entre as respostas (ex: 1000 = 1 segundo)
     }
 }
 
 
-    function sendMessage() {
-        const userMessage = userInput.value.trim();
-        if (userMessage === '') return;
+function sendMessage() {
+    const userMessage = userInput.value.trim();
+    if (userMessage === '') return;
 
-        renderMessage(userMessage, false);
-        userInput.value = '';
-
-        setTimeout(() => {
-            currentStep++;
-            nextStep(userMessage);
-        }, 500);
+    // Validação para nome (mínimo de 5 caracteres)
+    if (currentStep === 1) {
+        if (userMessage.length < 5) {
+            renderMessage("Por favor, digite um nome com mais de 5 caracteres.");
+            return;
+        }
     }
+
+    // Validação para e-mail (deve conter o símbolo '@')
+    if (currentStep === 2) {
+        if (!validateEmail(userMessage)) {
+            renderMessage("Por favor, digite um e-mail válido.");
+            return;
+        }
+    }
+
+    renderMessage(userMessage, false);
+    userInput.value = '';
+
+    setTimeout(() => {
+        currentStep++;
+        nextStep(userMessage);
+    }, 500);
+}
+
+function validateEmail(email) {
+    // Validação simples do formato de e-mail com '@'
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
 
     nextStep();
 </script>
